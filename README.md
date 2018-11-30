@@ -14,3 +14,10 @@
 1. clone this repository
 1. run `docker-compose up -d`
 1. init database `docker-compose exec app python manage.py migrate`
+
+## add your apps
+
+`docker-compose exec app YOUR_COMMAND`
+
+eg
+`docker-compose exec app python manage.py startapp polls`
