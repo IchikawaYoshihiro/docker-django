@@ -1,0 +1,34 @@
+version: '3'
+services:
+  src:
+    restart: always
+    build: ./src
+    expose:
+      - "8000"
+    depends_on:
+      - db
+    command: gunicorn core.wsgi -b 0.0.0.0:8000
+    volumes:
+      - ./src/core:/usr/src/app
+      - ./src/static/:/usr/src/app/static
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx/:/etc/nginx/"
+      - /src/static
+    depends_on:
+      - src
+  db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - .:/var/www/webapp
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: django
+      MYSQL_DATABASE: django
+      MYSQL_USER: django
+      MYSQL_PASSWORD: django
