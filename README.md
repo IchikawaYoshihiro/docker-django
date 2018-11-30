@@ -14,6 +14,8 @@
 1. clone this repository
 1. run `docker-compose up -d`
 1. init database `docker-compose exec app python manage.py migrate`
+1. collect static files `docker-compose exec app python manage.py collectstatic --noinput`
+1. create super user `ocker-compose exec app python manage.py createsuperuser`
 
 ## add your apps
 

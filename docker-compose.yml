@@ -10,15 +10,14 @@ services:
     command: gunicorn core.wsgi -b 0.0.0.0:8000
     volumes:
       - ./app/core:/usr/src/app
-      - ./app/static/:/usr/src/app/static
   nginx:
     restart: always
     image: nginx
     ports:
       - "8000:80"
     volumes:
-      - "./nginx/:/etc/nginx/"
-      - /app/static
+      - ./nginx/:/etc/nginx/
+      - ./app/static/:/usr/src/app/static
     depends_on:
       - app
   db:
