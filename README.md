@@ -23,3 +23,7 @@
 
 eg
 `docker-compose exec app python manage.py startapp polls`
+
+## restart your apps
+
+`sh bin/restartapp.sh` or `docker-compose restart app`
