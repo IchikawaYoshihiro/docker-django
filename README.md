@@ -2,8 +2,10 @@
 
 ## spec
 
-- wsgi
-  gunicorn
+- appserver
+  - python3.7
+  - wsgi(gunicorn)
+  - django2.x
 - webserver
   - nginx
 - database
@@ -21,5 +23,5 @@
 
 `docker-compose exec app YOUR_COMMAND`
 
-eg
+eg.
 `docker-compose exec app python manage.py startapp polls`
