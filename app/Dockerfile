@@ -1,5 +1,6 @@
 FROM python:3.7-alpine
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 RUN apk update \
