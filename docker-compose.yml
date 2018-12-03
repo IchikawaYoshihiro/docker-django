@@ -7,7 +7,7 @@ services:
       - "8000"
     depends_on:
       - db
-    command: gunicorn core.wsgi -b 0.0.0.0:8000
+    command: gunicorn core.wsgi -b 0.0.0.0:8000 --reload
     volumes:
       - ./app/core:/usr/src/app
       - ./app/static/:/usr/src/app/static
