@@ -11,9 +11,9 @@ services:
     volumes:
       - ./app/core:/usr/src/app
       - ./app/static/:/usr/src/app/static
-  nginx:
+  web:
     restart: always
-    image: nginx
+    image: nginx:alpine
     ports:
       - "8000:80"
     volumes:
